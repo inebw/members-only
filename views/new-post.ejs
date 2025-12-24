@@ -1,0 +1,9 @@
+<a href="/">Home</a>
+<%- include("partials/errors") %>
+<form action="/<%= id %>/new-post" method="post">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" required>
+    <label for="message">Message: </label>
+    <textarea name="message" id="message" required></textarea>
+    <button type="submit">Add Post</button>
+</form>
