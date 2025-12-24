@@ -13,9 +13,9 @@
       <div class="post">
         <h2><%= post.title %></h2>
         <p><%= post.message %></p>
-        <% if (user) { %>
+        <% if (user && (user.is_member || user.admin)) { %>
           <p><%= post.added_on %></p>
-          <p><%= post.username %></p>
+          <p><%= post.first_name %> <%= post.last_name %></p>
           <% if (user.admin) { %>
             <form action="/<%= post.id %>/delete-post" method="post">
                 <button type="submit">Delete Post</button>
@@ -29,6 +29,9 @@
     <% if (user) { %>
       <a href="/<%= user.id %>/new-post">New Post</a>
       <a href="/logout">Logout</a>
+      <% if (!user.is_member) { %>
+      <a href="/<%= user.id %>/join-club">Join Club</a>
+      <% } %>
     <% } else { %>
       <a href="/sign-up">Sign-Up</a>
       <a href="/login">Login</a>

@@ -1,12 +1,14 @@
 const db = require("./pool");
 
-async function addUser(username, password) {
-  await db.query("INSERT INTO users (username, password) values ($1, $2)", [
-    username,
-    password,
-  ]);
+async function addUser(firstName, lastName, username, password) {
+  await db.query(
+    `
+    INSERT INTO users 
+    (username, password, first_name, last_name) 
+    values ($1, $2, $3, $4)`,
+    [username, password, firstName, lastName]
+  );
   const { rows } = await db.query("select * from users;");
-  console.log(rows);
 }
 
 async function getUser(username) {
@@ -28,14 +30,19 @@ async function addPost(title, message, addedOn, user_id) {
 }
 
 async function getPosts() {
-  const { rows } = await db.query(`SELECT p.*, u.username FROM posts AS p
-                                    INNER JOIN users AS u
-                                    ON u.id = p.user_id;`);
+  const { rows } = await db.query(`
+    SELECT p.*, u.first_name, u.last_name FROM posts AS p
+    INNER JOIN users AS u
+    ON u.id = p.user_id;`);
   return rows;
 }
 
 async function deletePost(id) {
-    await db.query('DELETE FROM posts WHERE id = $1', [parseInt(id)])
+  await db.query("DELETE FROM posts WHERE id = $1", [parseInt(id)]);
+}
+
+async function addToClub(id) {
+  await db.query("UPDATE users SET is_member = $1 WHERE id = $2", [true, id]);
 }
 
 module.exports = {
@@ -43,4 +50,5 @@ module.exports = {
   addPost,
   getPosts,
   deletePost,
+  addToClub,
 };

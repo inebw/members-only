@@ -8,6 +8,9 @@ const newPostGet = require('./../controllers/newPostGet');
 const newPostPost = require("../controllers/newPostPost");
 const logoutGet = require('./../controllers/logoutGet');
 const deletePostPost = require("../controllers/deletePostPost");
+const joinClubGet = require("../controllers/joinClubGet");
+const joinClubPost = require("../controllers/joinClubPost");
+
 
 const router = Router();
 
@@ -21,5 +24,7 @@ router.get('/:id/new-post', newPostGet)
 router.post('/:id/new-post', newPostPost)
 router.get('/logout', logoutGet)
 router.post('/:id/delete-post', deletePostPost)
+router.get('/:id/join-club', joinClubGet)
+router.post('/:id/join-club', joinClubPost)
 
 module.exports = router;
