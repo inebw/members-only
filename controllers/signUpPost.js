@@ -38,7 +38,7 @@ module.exports = [
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const { firstName, lastName, username, password } = matchedData(req);
-      const hasedPassword = bcrypt.hash(password, 10);
+      const hasedPassword = await bcrypt.hash(password, 10);
       await db.addUser(firstName, lastName, username, hasedPassword);
       res.redirect("/");
     } else {

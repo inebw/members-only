@@ -12,13 +12,14 @@
   </head>
   <body>
     <%- include('header', {user:user}) %>
-    <%- include('partials/errors') %>
+    
     <form action="/login" method="post" class="inp">
-      <label for="username">Username: </label>
+      <label for="username">Username</label>
       <input type="text" id="username" name="username" />
-      <label for="password">Enter Password: </label>
+      <label for="password">Password</label>
       <input type="password" id="password" name="password" />
       <button type="submit">Login</button>
+      <%- include('partials/loginErrors') %>
     </form>
   </body>
 </html>

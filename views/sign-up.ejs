@@ -14,15 +14,15 @@
     <%- include('header', {user:user}) %>
     <%- include("partials/errors") %>
     <form action="/sign-up" method="post" class="inp">
-      <label for="firstName">First Name: </label>
+      <label for="firstName">First Name</label>
       <input type="text" id="firstName" name="firstName" required />
-      <label for="lastName">Last name: </label>
+      <label for="lastName">Last name</label>
       <input type="text" name="lastName" id="lastName" />
-      <label for="username">Username: </label>
+      <label for="username">Username</label>
       <input type="text" id="username" name="username" />
-      <label for="password">Enter Password: </label>
+      <label for="password">Enter Password</label>
       <input type="password" id="password" name="password" />
-      <label for="confirm-password">Confirm Password: </label>
+      <label for="confirm-password">Confirm Password</label>
       <input type="password" id="confirm-password" name="confirm-password" />
       <button type="submit">Sign Up</button>
     </form>
