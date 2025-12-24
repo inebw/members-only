@@ -1,0 +1,29 @@
+<header>
+  <a href="/" class="logo">
+    <h1>Members Only Club</h1>
+    <img class="logo-img" src="/assets/logo.svg" alt="">
+  </a>
+  <div class="links">
+    <% if (user) { %>
+    <a href="/<%= user.id %>/new-post" class="link-container">
+      <p>new post</p>
+      <img class="icon" src="/assets/new-post.svg" alt="">
+    </a>
+    <a href="/logout" class="link-container">
+      <p>logout</p>
+      <img class="icon" src="/assets/login.svg" alt=""/>
+    </a>
+    <% if (!user.is_member) { %>
+    <a href="/<%= user.id %>/join-club">Join Club</a>
+    <% } %> <% } else { %>
+    <a href="/sign-up" class="link-container">
+      <p>sign up</p>
+      <img class="icon" src="/assets/sign-up.svg" alt="">
+    </a>
+    <a href="/login" class="link-container">
+      <p>login</p>
+      <img class="icon" src="/assets/login.svg" alt=""/>
+    </a>
+    <% } %>
+  </div>
+</header>

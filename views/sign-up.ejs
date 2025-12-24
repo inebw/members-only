@@ -1,15 +1,30 @@
-<a href="/">Home</a>
-<%- include("partials/errors") %>
-<form action="/sign-up" method="post">
-    <label for="firstName">First Name: </label>
-    <input type="text" id="firstName" name="firstName" required>
-    <label for="lastName">Last name: </label>
-    <input type="text" name="lastName" id="lastName">
-    <label for="username">Username: </label>
-    <input type="text" id="username" name="username">
-    <label for="password">Enter Password: </label>
-    <input type="password" id="password" name="password">
-    <label for="confirm-password">Confirm Password: </label>
-    <input type="password" id="confirm-password" name="confirm-password">
-    <button type="submit">Sign Up</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap");
+    </style>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('header', {user:user}) %>
+    <%- include("partials/errors") %>
+    <form action="/sign-up" method="post">
+      <label for="firstName">First Name: </label>
+      <input type="text" id="firstName" name="firstName" required />
+      <label for="lastName">Last name: </label>
+      <input type="text" name="lastName" id="lastName" />
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" />
+      <label for="password">Enter Password: </label>
+      <input type="password" id="password" name="password" />
+      <label for="confirm-password">Confirm Password: </label>
+      <input type="password" id="confirm-password" name="confirm-password" />
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>

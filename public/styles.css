@@ -1,4 +1,74 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  text-decoration: none;
+  border: none;
+  list-style: none;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #cbcbcb;
-    color: #353535;
+  background-color: #1e1e24;
+  color: #f7ebe8;
+  font-family: "Nunito";
+  margin: 10px 400px 10px 400px;
+}
+
+header {
+  justify-content: space-between;
+  background-color: #444140;
+  border-radius: 8px;
+}
+
+input {
+    background-color: #f7ebe8;
+    border-radius: 8px;
+}
+
+.logo > h1 {
+  font-family: "Fascinate Inline";
+}
+
+.link-container,
+.logo {
+  color: #e54b4b;
+  transition: opacity 0.1s ease-in-out;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 5px 10px 5px 10px;
+}
+
+.logo,
+header,
+.link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-container {
+  gap: 5px;
+}
+
+.icon {
+  width: 1rem;
+}
+
+.logo-img {
+  width: 2.7rem;
+}
+
+.link-container:hover,
+.logo:hover {
+  opacity: 80%;
+}
+
+form,
+.post {
+    border: solid #444140 1px;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 5px 10px 5px 10px;
 }
