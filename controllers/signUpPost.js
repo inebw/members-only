@@ -12,13 +12,18 @@ const validateUser = [
   body("lastName")
     .trim()
     .isLength({ min: 3, max: 255 })
-    .withMessage("First name should be within 3 to 255 characters")
+    .withMessage("Last name should be within 3 to 255 characters")
     .isAlpha()
-    .withMessage("First name can contian only letters"),
+    .withMessage("Last name can contian only letters"),
   body("username")
     .trim()
     .isLength({ min: 4, max: 32 })
-    .withMessage("Username should be within 4 to 32 characters"),
+    .withMessage("Username should be within 4 to 32 characters")
+    .custom(async (value) => {
+      const user = await db.getUser(value);
+      if (user.length == 1) {throw new Error("Username Already Exists");}
+      return true;
+    }),
   body("password")
     .trim()
     .isLength({ min: 8, max: 64 })
@@ -42,7 +47,13 @@ module.exports = [
       await db.addUser(firstName, lastName, username, hasedPassword);
       res.redirect("/");
     } else {
-      res.status(400).render("sign-up", { errors: errors.array(), title:'Invalid Input: Retry', user:req.user});
+      res
+        .status(400)
+        .render("sign-up", {
+          errors: errors.array(),
+          title: "Invalid Input: Retry",
+          user: req.user,
+        });
     }
   },
 ];

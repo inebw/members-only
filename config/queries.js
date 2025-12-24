@@ -15,7 +15,7 @@ async function getUser(username) {
   const { rows } = await db.query("SELECT * FROM USERS WHERE username = $1", [
     username,
   ]);
-  return rows[0];
+  return rows;
 }
 
 async function addPost(title, message, addedOn, user_id) {
@@ -52,4 +52,5 @@ module.exports = {
   getPosts,
   deletePost,
   addToClub,
+  getUser
 };
