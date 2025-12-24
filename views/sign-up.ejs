@@ -12,19 +12,38 @@
   </head>
   <body>
     <%- include('header', {user:user}) %>
-    <form action="/sign-up" method="post" class="inp">
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" name="firstName" required />
-      <label for="lastName">Last name</label>
-      <input type="text" name="lastName" id="lastName" />
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" />
-      <label for="password">Enter Password</label>
-      <input type="password" id="password" name="password" />
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" id="confirm-password" name="confirm-password" />
-      <button type="submit">Sign Up</button>
-      <%- include("partials/errors") %>
-    </form>
+    <div class="form-container">
+      <form action="/sign-up" method="post" class="inp-form">
+        <label for="firstName"
+          >First Name<input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+        /></label>
+
+        <label for="lastName"
+          >Last name<input type="text" name="lastName" id="lastName"
+        /></label>
+
+        <label for="username"
+          >Username<input type="text" id="username" name="username"
+        /></label>
+
+        <label for="password"
+          >Enter Password<input type="password" id="password" name="password"
+        /></label>
+
+        <label for="confirm-password"
+          >Confirm Password<input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+        /></label>
+
+        <button type="submit">Sign Up</button>
+        <%- include("partials/errors") %>
+      </form>
+    </div>
   </body>
 </html>

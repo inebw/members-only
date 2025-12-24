@@ -12,13 +12,15 @@
   </head>
   <body>
     <%- include('header', {user:user}) %>
-    <%- include("partials/errors") %>
-    <form action="/<%= id %>/new-post" method="post" class="inp">
-      <label for="title">Title: </label>
+    <div class="form-container">
+      <form action="/<%= id %>/new-post" method="post" class="inp-form">
+      <label for="title">Title</label>
       <input type="text" name="title" id="title" required />
-      <label for="message">Message: </label>
+      <label for="message">Message</label>
       <textarea name="message" id="message" required></textarea>
-      <button type="submit">Add Post</button>
+      <button type="submit">Publish</button>
+      <%- include("partials/errors") %>
     </form>
+    </div>
   </body>
 </html>
