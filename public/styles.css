@@ -17,19 +17,90 @@ body {
   margin: 10px 400px 10px 400px;
 }
 
+@media (max-width:1400px) {
+  body {
+    margin: 10px 100px 10px 100px;
+  }
+}
+
+@media (max-width:800px) {
+  body {
+    margin: 10px;
+  }
+}
+
+@media (max-width:630px) {
+  header {
+    flex-direction: column;
+  }
+  .logo-img {
+    display: none;
+  }
+}
+
 header {
+  position: relative;
   justify-content: space-between;
   background-color: #444140;
   border-radius: 8px;
 }
 
-input {
-    background-color: #f7ebe8;
+form.inp,
+.post {
+    border: solid #444140 1px;
     border-radius: 8px;
+    margin-top: 15px;
+    padding: 5px 10px 5px 10px;
+}
+
+form.inp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 25px 10px 25px 10px;
+}
+
+button {
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  background-color: #ffa987;
+  color: #1e1e24;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+textarea,
+input {
+    background-color: #444140;
+    color: #f7ebe8;
+    border-radius: 8px;
+    padding: 5px 10px 5px 10px;
+    outline: none;
+    font-size: 1rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+textarea {
+  width: 70%;
+  resize: none;
+  height: 200px;
+}
+
+textarea:focus,
+input:focus {
+  outline: solid #ffa987 1px;
 }
 
 .logo > h1 {
   font-family: "Fascinate Inline";
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 .link-container,
@@ -39,6 +110,7 @@ input {
   font-weight: bold;
   border-radius: 8px;
   padding: 5px 10px 5px 10px;
+  font-size: 1.5rem;
 }
 
 .logo,
@@ -53,22 +125,74 @@ header,
 }
 
 .icon {
-  width: 1rem;
+  width: 1.5rem;
 }
 
 .logo-img {
   width: 2.7rem;
 }
 
+button:hover,
 .link-container:hover,
 .logo:hover {
   opacity: 80%;
 }
 
-form,
-.post {
-    border: solid #444140 1px;
-    border-radius: 8px;
-    margin-top: 15px;
-    padding: 5px 10px 5px 10px;
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  height: 60px;
+  aspect-ratio: 2;
+  border-bottom: 3px solid #0000;
+  background: 
+    linear-gradient(90deg,#524656 50%,#0000 0)
+    -25% 100%/50% 3px repeat-x border-box;
+  position: relative;
+  animation: l3-0 .75s linear infinite;
 }
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: auto 42.5% 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #CF4647;
+  animation: l3-1 .75s cubic-bezier(0,900,1,900) infinite;
+}
+@keyframes l3-0 {
+  to {background-position: -125% 100%}
+}
+@keyframes l3-1 {
+  0%,2% {bottom: 0%}
+  98%,to {bottom:.1%}
+}
+
+#user-box {
+  display: none;
+}
+
+.user {
+  position: relative;
+}
+
+.user-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.links {
+  display: none;
+}
+
+#user-box:checked ~ .links {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(0%, 102%);
+  background-color: #444140;
+  border-radius: 8px;
+}
+

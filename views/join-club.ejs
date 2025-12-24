@@ -1,6 +1,21 @@
-<a href="/">Home</a>
-<form action="/<%= id %>/join-club" method="post">
-    <label for="privateKey">Enter Private Key To Join Our Private Club</label>
-    <input type="password" name="privateKey" id="privateKey">
-    <button type="submit">Join Private Club</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap");
+    </style>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('header', {user:user}) %>
+    <form action="/<%= id %>/join-club" method="post" class="inp">
+      <label for="privateKey">Enter your Invite Key</label>
+      <input type="password" name="privateKey" id="privateKey" />
+      <button type="submit">Join Private Club</button>
+    </form>
+  </body>
+</html>

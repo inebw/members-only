@@ -13,7 +13,7 @@
   <body>
     <%- include('header', {user:user}) %>
     <%- include('partials/errors') %>
-    <form action="/login" method="post">
+    <form action="/login" method="post" class="inp">
       <label for="username">Username: </label>
       <input type="text" id="username" name="username" />
       <label for="password">Enter Password: </label>

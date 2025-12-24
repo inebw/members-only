@@ -42,7 +42,7 @@ module.exports = [
       await db.addUser(firstName, lastName, username, hasedPassword);
       res.redirect("/");
     } else {
-      res.status(400).render("sign-up", { errors: errors.array() });
+      res.status(400).render("sign-up", { errors: errors.array(), title:'Invalid Input: Retry', user:req.user});
     }
   },
 ];

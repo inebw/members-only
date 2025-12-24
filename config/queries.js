@@ -33,7 +33,8 @@ async function getPosts() {
   const { rows } = await db.query(`
     SELECT p.*, u.first_name, u.last_name FROM posts AS p
     INNER JOIN users AS u
-    ON u.id = p.user_id;`);
+    ON u.id = p.user_id
+    ORDER BY p.id DESC;`);
   return rows;
 }
 

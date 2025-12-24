@@ -1,28 +1,42 @@
 <header>
   <a href="/" class="logo">
     <h1>Members Only Club</h1>
-    <img class="logo-img" src="/assets/logo.svg" alt="">
+    <img class="logo-img" src="/assets/logo.svg" alt="" />
   </a>
+  <input type="checkbox" id="user-box" />
+  <div class="user link-container">
+    <label for="user-box" class="user-box"></label>
+    <% if (user) { %>
+    <p><%= user.first_name %> <%= user.last_name %></p>
+    <% } else { %>
+    <p>user</p>
+    <% } %>
+    <img class="icon" src="/assets/user.svg" alt="" />
+  </div>
+
   <div class="links">
     <% if (user) { %>
     <a href="/<%= user.id %>/new-post" class="link-container">
       <p>new post</p>
-      <img class="icon" src="/assets/new-post.svg" alt="">
+      <img class="icon" src="/assets/new-post.svg" alt="" />
     </a>
     <a href="/logout" class="link-container">
       <p>logout</p>
-      <img class="icon" src="/assets/login.svg" alt=""/>
+      <img class="icon" src="/assets/login.svg" alt="" />
     </a>
     <% if (!user.is_member) { %>
-    <a href="/<%= user.id %>/join-club">Join Club</a>
+    <a href="/<%= user.id %>/join-club" class="link-container">
+      <p>join club</p>
+      <img class="icon" src="/assets/join-club.svg" alt="" />
+    </a>
     <% } %> <% } else { %>
     <a href="/sign-up" class="link-container">
       <p>sign up</p>
-      <img class="icon" src="/assets/sign-up.svg" alt="">
+      <img class="icon" src="/assets/sign-up.svg" alt="" />
     </a>
     <a href="/login" class="link-container">
       <p>login</p>
-      <img class="icon" src="/assets/login.svg" alt=""/>
+      <img class="icon" src="/assets/login.svg" alt="" />
     </a>
     <% } %>
   </div>
