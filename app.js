@@ -35,7 +35,9 @@ require("./config/passport");
 
 app.use(router);
 
-app.listen(3000, (err) => {
+const port = process.env.PORT || 4000 
+
+app.listen(port, (err) => {
   if (err) console.log(err);
-  else console.log("listening on 3000");
+  else console.log(`listening on ${port}`);
 });
